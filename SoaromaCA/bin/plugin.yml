@@ -1,0 +1,12 @@
+name: SoaromaCA
+version: 0.0.1
+description: Configurable Chat Expression Plugin
+author: Korbsti
+main: me.korbsti.soaromaca.SoaromaCA
+api-version: 1.16
+depend: [Vault]
+commands:
+   calist:
+   ca:
+   careload:
+   cahelp:

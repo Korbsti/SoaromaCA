@@ -1,0 +1,180 @@
+# ********************************************** #
+#                                                #
+#     -- SoaromaCA Configuration File --         #
+#           -- Version 0.0.1 --                  #
+#                                                #
+# ********************************************** #
+# The way this plugin works is exactly as it says, it chooses a random LINE from the path
+# for example this
+#     sendMessageTo:
+#       - '{player} has kissed you!'
+#       - '{player} has smooched you!'
+#       - '{player} has locked lips with you!' 
+# The plugin will choose a random line and use that line, it will not send all the lines
+# to create a new "command" just copy an existing "command" the command will be called the 
+# variable it is called, for example the 'kiss' you type /kiss {player} and it will run the commands
+# Everything is self explanitory, goodluck!
+# MEANING YOU CAN ADD ANY COMMAND YOU WANT, yes anything h e h
+# SO To CREATE a new chat action, follow this format 
+# PUT THIS UNDERNEATH "commands"
+#  nameOfAction:
+#    permission: this.permission.anything.you.want
+#    enableBroadcast: true
+#    ifselfTo:
+#       - 'You kissed your hand you lonely person!'    <-- pretty much means if the command was to themselves
+#    sendMessageTo:
+#       - '{player} has kissed you!' <--- sends the message to the specified player
+#       - '{player} has smooched you!'
+#       - '{player} has locked lips with you!'  
+#    recieveMessage:
+#       - 'You have kissed {player}!' <--- the player targetted gets one of these messages
+#       - 'You have locked lips with {player}!'
+#    broadcastMessage:
+#       - '{player} has kissed {secondPlayer}!' <--- broadcasts one of these messages
+#       - '{player} has smooched {secondPlayer} smooched you!'
+#       - '{player} has locked lips with {secondPlayer}!'  
+#    broadcastSelf:
+#       - '{player} has kissed themselves!' <---- if kissed themselves broadcast this message
+#
+#  slap:
+#    permission: use.slap.action
+#    enableBroadcast: true
+#    ifselfTo:
+#       - '&3YOU SLAPPED YOURSELF... why though'  
+#    sendMessageTo:
+#       - '&3{player} has slapped you!!!!' 
+#    recieveMessage:
+#       - '&3 YOU HAVE THUNDERCLAPPED {player}'
+#    broadcastMessage:
+#       - '&3{player} has slapped {secondPlayer}!'
+#    broadcastSelf:
+#       - '&3{player} has slapped themselves... for some reason!'
+# ALSO ONE MORE THING
+# THIS PLUGIN DOES SUPPORT HEX COLOURS
+# SO, instead of using &3 or something
+# do '#hex/ message' to use a hex colour instead
+# Please note you can add as many chat actions as you want following the correct format stated above
+
+calist: '&3The known chat actions are {actions}'
+noPerm: '&3You do not have permission for this'
+notOnline: '&3Specified player is not online'
+invalidArgs: '&3Invalid arguments'
+reloaded: '&3Reloaded'
+help-message:
+    - '#26ff92/Do /calist, to display all chat actions.'
+    - '#26ff92/Do /ca {action} {player}'
+
+commands:
+  kiss: 
+    permission: ca.kiss.use
+    enableBroadcast: true
+    enablePreCommandProcess: false
+    ifselfTo:
+       - '#26ff92/You kissed your hand you lonely person!'
+       - '#26ff92/You kissed yourself...'
+    sendMessageTo:
+       - '#26ff92/{player} has kissed you!'
+       - '#26ff92/{player} has smooched you!'
+       - '#26ff92/{player} has locked lips with you!'  
+    recieveMessage:
+       - '#26ff92/You have kissed {player}!'
+       - '#26ff92/You have locked lips with {player}!'
+    broadcastMessage:
+       - '#26ff92/{player} has kissed {secondPlayer}!'
+       - '#26ff92/{player} has smooched {secondPlayer} smooched you!'
+       - '#26ff92/{player} has locked lips with {secondPlayer}!'  
+    broadcastSelf:
+       - '#26ff92/{player} has kissed themselves!'
+  poke: 
+    permission: ca.poke.use
+    enableBroadcast: true
+    enablePreCommandProcess: false
+    ifselfTo:
+       - '#26ff92/You poked yourself!'
+    sendMessageTo:
+       - '#26ff92/{player} has poked you!' 
+    recieveMessage:
+       - '#26ff92/You have poked {player}!'
+    broadcastMessage:
+       - '#26ff92/{player} has poked {secondPlayer}!'
+    broadcastSelf:
+       - '#26ff92/{player} has poked themselves!'
+  stab: 
+    permission: ca.stab.use
+    enableBroadcast: true
+    enablePreCommandProcess: false
+    ifselfTo:
+       - '#26ff92/You STABBED yourself!'
+    sendMessageTo:
+       - '#26ff92/{player} took a dull kitchen knife and stabbed you!' 
+    recieveMessage:
+       - '#26ff92/You have stabbed {player}!'
+    broadcastMessage:
+       - '#26ff92/{player} has stabbed {secondPlayer}!'
+    broadcastSelf:
+       - '#26ff92/{player} has stabbed themselves!'
+  thunderclap: 
+    permission: ca.thunderclap.use
+    enableBroadcast: true
+    enablePreCommandProcess: false
+    ifselfTo:
+       - '#26ff92/You &e&lTHUNDERCLAPPED#26ff92/ yourself!'
+    sendMessageTo:
+       - '#26ff92/{player} has &e&lTHUNDERCLAPPED#26ff92/ you!' 
+    recieveMessage:
+       - '#26ff92/You have &e&lTHUNDERCLAPPED#26ff92/ {player}!'
+    broadcastMessage:
+       - '#26ff92/{player} has &e&lTHUNDERCLAPPED#26ff92/ {secondPlayer}!'
+    broadcastSelf:
+       - '#26ff92/{player} has &e&lTHUNDERCLAPPED#26ff92/ themselves!'
+  tap: 
+    permission: ca.tap.use
+    enableBroadcast: true
+    enablePreCommandProcess: false
+    ifselfTo:
+       - '#26ff92/You tapped yourself!'
+    sendMessageTo:
+       - '#26ff92/{player} has tapped you!' 
+    recieveMessage:
+       - '#26ff92/You have tapped {player}!'
+    broadcastMessage:
+       - '#26ff92/{player} has tapped {secondPlayer}!'
+    broadcastSelf:
+       - '#26ff92/{player} has tapped themselves!'
+  hug:
+    permission: ca.hug.use
+    enableBroadcast: true
+    enablePreCommandProcess: false
+    ifselfTo:
+       - '#26ff92/God damn you must be lonely if you are trying to hug yourself'
+       - '#26ff92/You uh, hugged yourself...'
+    sendMessageTo:
+       - '#26ff92/{player} has hugged you!'
+       - '#26ff92/{player} has wrapped their arms you!'
+    recieveMessage:
+       - '#26ff92/You have hugged {secondPlayer}!'
+       - 'You have wrapped your arms around {secondPlayer}!'
+    broadcastMessage:
+       - '#26ff92/{player} has hugged {secondPlayer}!'
+       - '#26ff92/{player} has wrapped their arms around {secondPlayer}!'
+    broadcastSelf:
+       - '#26ff92/{player} has wrapped their arms around themselves!'
+  kill:
+    permission: ca.kill.use
+    enableBroadcast: true
+    enablePreCommandProcess: false
+    ifselfTo:
+       - '#26ff92/*cough* a cliff is a great way to suicide'
+       - '#26ff92/Please do not try to kill yourself ;-;'
+    sendMessageTo:
+       - '#26ff92/{player} has put a knife through your chest!'
+       - '#26ff92/{player} has wrapped their arms you and then... gnawed off a chunk of your throat!'
+    recieveMessage:
+       - '#26ff92/You have brutally murdered {player}!'
+       - '#26ff92/You have stabbed {player}!'
+    broadcastMessage:
+       - '#26ff92/{player} has choked {secondPlayer} to death as they slowly lose life!'
+       - '#26ff92/{player} has shot {secondPlayer} with a .50 barret rifle!'
+    broadcastSelf:
+       - '#26ff92/{player} has killed themselves!'
+       - '#26ff92/{player} has committed Seppuku!'
